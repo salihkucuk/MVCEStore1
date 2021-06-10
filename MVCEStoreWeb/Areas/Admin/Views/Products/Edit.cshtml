@@ -1,0 +1,31 @@
+﻿@model Product
+@{
+    var entity = "Ürün";
+    ViewData["Title"] = $"{entity} Güncelleme";
+}
+<form method="Post" enctype="multipart/form-data">
+    @Html.HiddenFor(p => p.Date)
+    @Html.HiddenFor(p => p.Picture)
+    <div class="card card-default">
+        <div class="card-header">
+            <h3 class="card-title">@ViewData["Title"] Formu</h3>
+        </div>
+        <div class="card-body">
+            <partial name="CreateOrEdit" model="Model" />
+        </div>
+        <div class="card-footer">
+            <a asp-action="Index" class="btn btn-link">İptal</a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-save"></i> KAYDET
+            </button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="Select2Partial" />
+    <partial name="ProductPicturePartial" />
+    @*<partial name="SummernotePartial"/>*@
+    
+}

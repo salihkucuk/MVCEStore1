@@ -1,0 +1,25 @@
+﻿@model Category
+@{
+    var entity = "Kategori";
+    ViewData["Title"] = $"{entity} Ekleme";
+}
+<form method="Post">
+    <div class="card card-default">
+        <div class="card-header">
+            <h3 class="card-title">@ViewData["Title"] Formu</h3>
+        </div>
+        <div class="card-body">
+            <partial name="CreateOrEdit" model="Model" />
+        </div>
+        <div class="card-footer">
+            <a asp-action="Index" class="btn btn-link">İptal</a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-save"></i> KAYDET
+            </button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

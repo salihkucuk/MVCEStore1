@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEStoreWeb", "MVCEStoreWeb\MVCEStoreWeb.csproj", "{1EDC2741-D670-4D09-A737-DF4D4108F85C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEStoreData", "MVCEStoreData\MVCEStoreData.csproj", "{B870D920-0A8D-46D7-BB58-3280EB686100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEStoreMigrationSqlServer", "MVCEStoreMigrationSqlServer\MVCEStoreMigrationSqlServer.csproj", "{C8CF8CA4-51B9-40C4-AE32-A075A2CF8657}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{1EDC2741-D670-4D09-A737-DF4D4108F85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EDC2741-D670-4D09-A737-DF4D4108F85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EDC2741-D670-4D09-A737-DF4D4108F85C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B870D920-0A8D-46D7-BB58-3280EB686100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B870D920-0A8D-46D7-BB58-3280EB686100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B870D920-0A8D-46D7-BB58-3280EB686100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B870D920-0A8D-46D7-BB58-3280EB686100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8CF8CA4-51B9-40C4-AE32-A075A2CF8657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8CF8CA4-51B9-40C4-AE32-A075A2CF8657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8CF8CA4-51B9-40C4-AE32-A075A2CF8657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8CF8CA4-51B9-40C4-AE32-A075A2CF8657}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

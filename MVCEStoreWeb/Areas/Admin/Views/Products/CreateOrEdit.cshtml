@@ -1,0 +1,161 @@
+﻿@model Product
+
+<div class="form-row">
+    <div class="col-12 col-md-6">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-12 col-md-6">
+        <div class="form-group">
+            <label asp-for="BrandId"></label>
+            <select asp-for="BrandId" asp-items="@ViewBag.Brands as SelectList" class="custom-select">
+                <option value="" selected>Seçiniz...</option>
+            </select>
+
+        </div>
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-12 col-md-6">
+        <div class="form-group">
+            <label asp-for="SelectedCategories"></label>
+            <br />
+            <select asp-for="SelectedCategories" asp-items="@ViewBag.Categories as SelectList" class="select2" style="width: 100%;">
+            </select>
+        </div>
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-6 col-md-3">
+        <div class="form-group">
+            <label asp-for="ProductCode"></label>
+            <input asp-for="ProductCode" class="form-control" />
+            <span asp-validation-for="ProductCode" class="text-danger"></span>
+        </div>
+    </div>
+        <div class="col-6 col-md-3">
+            <div class="form-group">
+                <label asp-for="Barcode"></label>
+                <input asp-for="Barcode" class="form-control" />
+                <span asp-validation-for="Barcode" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+<div class="form-row">
+    <div class="col-6 col-md-3">
+        <div class="form-group">
+            <label asp-for="PriceText"></label>
+            <input asp-for="PriceText" class="form-control" />
+            <span asp-validation-for="PriceText" class="text-danger"></span>
+        </div>
+    </div>
+        <div class="col-6 col-md-3">
+            <div class="form-group">
+                <label asp-for="Discount"></label>
+                <input asp-for="Discount" class="form-control" />
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+<div class="form-row">
+    <div class="col-12 col-md-4">
+        <label asp-for="PictureFile"></label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="PictureFile" name="PictureFile" />
+            <label class="custom-file-label" for="PictureFile" data-browse="Gözat">görsel dosyası seçiniz</label>
+            <div class="alert alert-light mt-2">
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="fa fa-info-circle"></i> En iyi görünüm için 800&times;800 ebadında görseller yükleyiniz.
+                    </li>
+                    <li>
+                        <i class="fa fa-info-circle"></i> Yüklenen görseller otomatik olarak 800&times;800 ebadında uygun hale getirilecektir.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-8">
+        <div class="form-group">
+            <label>Ön Görünüm</label>
+            <div>
+                @if (Model.Picture == null)
+                {
+                    <img id="picturePreview" class="p-2 border shadow-sm" height="400" src="~/content/images/no_image.png" />
+                }
+                else
+                {
+                    <img id="picturePreview" class="p-2 border shadow-sm" height="400" src="@Model.Picture" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-12 col-md-4">
+        <label asp-for="PictureFiles"></label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="PictureFiles" name="PictureFiles" multiple />
+            <label class="custom-file-label" for="PictureFile" data-browse="Gözat">görsel dosyaları seçiniz</label>
+            <div class="alert alert-light mt-2">
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="fa fa-info-circle"></i> Ctrl tuşu ile birden fazla dosya seçilebilir.
+                    </li>
+                    <li>
+                        <i class="fa fa-info-circle"></i> En iyi görünüm için 800&times;800 ebadında görseller yükleyiniz.
+                    </li>
+                    <li>
+                        <i class="fa fa-info-circle"></i> Yüklenen görseller otomatik olarak 800&times;800 ebadında uygun hale getirilecektir.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-8">
+        <div class="form-group">
+            <label>Ön Görünüm <a href="#" id="clearPictureFilePreviews"><i class="fa fa-trash"></i> Temizle</a></label>
+            <div class="d-flex flex-wrap" id="pictureFilesPanel">
+            @if (Model.ProductPictures.Any())
+            {
+                foreach (var productPicture in Model.ProductPictures)
+                {
+                    <div class="m-2 p-2 shadow-sm">
+                        <img height="80" src="@productPicture.Picture" />
+                        <br />
+                        <label>
+                            <input type="checkbox" name="PictureFilesToDeleted" value="@productPicture.Id" />
+                            Sil
+                        </label>
+                    </div>
+                }
+            }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-12 col-md-12">
+        <div class="form-group">
+            <label asp-for="Descriptions"></label>
+            <br />
+            <textarea class="form-control" cols="20" asp-for="Descriptions" rows="2"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="col-12 col-md-6">
+        <div class="form-group form-check">
+            <input asp-for="Enabled" class="form-check-input" />
+            <label asp-for="Enabled" class="form-check-label"></label>
+        </div>
+    </div>
+</div>
+
+

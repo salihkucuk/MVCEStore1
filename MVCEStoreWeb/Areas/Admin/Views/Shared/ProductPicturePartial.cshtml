@@ -1,0 +1,28 @@
+﻿<script>
+    $(() => {
+        $('#PictureFile').on('change', (e) => {
+            var reader = new FileReader();
+            reader.onloadend = (evt) => {
+                $('#picturePreview').attr('src', reader.result);
+            };
+        reader.readAsDataURL(document.getElementById('PictureFile').files[0]);
+
+        });
+
+        $('#PictureFiles').on('change', (e) => {
+            $('.picture-file-preview').remove();
+            for (var i = 0; i <document.getElementById('PictureFiles').files.lenght; i++) {
+                var reader = new FileReader();
+                reader.onloadend = (evt) => {
+                    $('#pictureFilesPanel').append(`<div class="m-2 p-2 border shadow-sm picture-file-preview"><img height="80" src="${evt.currentTarget.result}" /></div>`);
+                }
+                reader.readAsDataURL(document.getElementById('PictureFiles').files[i]);
+            }
+        });
+
+        $('#clearPictureFilePreviews').on('click', (e) => {
+            $('#PictureFiles').val(null);
+            $('.picture-file-preview').remove();
+        });
+    });
+</script>

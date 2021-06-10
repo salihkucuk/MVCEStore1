@@ -1,0 +1,25 @@
+﻿@model Brand
+
+    
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PictureFile"></label>
+            <div>
+                <img id="picturePreview" class="p-2 border shadow-sm" height="400" src="~/content/images/no_image.png" />
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="PictureFile" name="PictureFile" />
+                <label class="custom-file-label" for="PictureFile" data-browse="Gözat">görsel dosyası seçiniz</label>
+            </div>
+        </div>
+       
+            <div class="form-group form-check">
+                <input asp-for="Enabled" class="form-check-input" />
+                <label asp-for="Enabled" class="form-check-label"></label>
+            </div>
+
+            

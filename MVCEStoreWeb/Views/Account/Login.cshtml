@@ -1,0 +1,40 @@
+﻿@model LoginViewModel
+@{
+    Layout = "_LayoutEmpty";
+}
+<form asp-controller="Account" asp-action="Login" method="post">
+    @Html.HiddenFor(p=>p.ReturnUrl)
+    <div class="card">
+        <div class="card-body">
+            @if (!ViewContext.ModelState.IsValid)
+            {
+                @Html.ValidationSummary()
+            }
+            <div class="form-row">
+                <div class="col-12 form-group">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 form-group">
+                    <label asp-for="IsPersistent"></label>
+                    <input asp-for="IsPersistent" class="form-check" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Giriş</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{ 
+        <partial name="_ValidationScriptsPartial"/>
+}
